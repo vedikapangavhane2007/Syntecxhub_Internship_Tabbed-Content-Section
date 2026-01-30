@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tabbed Content Section</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    width:400px;
+    background:#fff;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.tabs{
+    display:flex;
+}
+
+.tab{
+    flex:1;
+    padding:10px;
+    text-align:center;
+    cursor:pointer;
+    background:#ddd;
+}
+
+.tab.active{
+    background:#4CAF50;
+    color:white;
+    font-weight:bold;
+}
+
+.content{
+    display:none;
+    opacity:0;
+    transition:opacity 0.5s ease;
+    margin-top:15px;
+}
+
+.content.active{
+    display:block;
+    opacity:1;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="tabs">
+        <div class="tab active" onclick="openTab(0)">Overview</div>
+        <div class="tab" onclick="openTab(1)">Info</div>
+        <div class="tab" onclick="openTab(2)">Contact</div>
+    </div>
+
+    <div class="content active">
+        <h3>Overview</h3>
+        <p>This section provides an overview of the website.</p>
+    </div>
+
+    <div class="content">
+        <h3>Info</h3>
+        <p>This section contains important information.</p>
+    </div>
+
+    <div class="content">
+        <h3>Contact</h3>
+        <p>Email: example@gmail.com<br>Phone: 987654xxxx</p>
+    </div>
+
+</div>
+
+<script>
+function openTab(index){
+    let tabs = document.querySelectorAll(".tab");
+    let contents = document.querySelectorAll(".content");
+
+    tabs.forEach(tab => tab.classList.remove("active"));
+    contents.forEach(content => content.classList.remove("active"));
+
+    tabs[index].classList.add("active");
+    contents[index].classList.add("active");
+}
+</script>
+
+</body>
+</html>
